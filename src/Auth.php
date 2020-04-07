@@ -2,8 +2,7 @@
 namespace phplibrary;
 class Auth{
   use General;
-  function __construct() {
-    $this->fn_print("using this trait");
+  function __construct() {    
     $this->userpass="letmein";
     $this->server_address=$_SERVER['SERVER_ADDR'];
     $this->local_address="127.0.0.1";
