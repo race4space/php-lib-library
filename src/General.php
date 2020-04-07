@@ -1,6 +1,19 @@
 <?php
 namespace phplibrary;
 trait General{
+  function fn_get_echo($lab, $str){
+    $s="<div>";
+    $s.=$lab;
+    if(!empty($str) or  $str==="0"){
+      $s.=": ";
+      $s.=$str;
+    }
+    $s.="</div>".PHP_EOL;
+    return $s;
+  }
+  function fn_echo($lab, $str=""){
+    echo(fn_get_echo($lab, $str));
+  }
   function fn_replace_first($search, $replace, $subject) {
       $pos = strpos($subject, $search);
       if ($pos !== false) {
@@ -142,11 +155,11 @@ trait General{
   }
 
 
-  function fn_title($str){
-    echo(fn_get_title($str));
-  }
   function fn_get_title($str){
     return "<div style='text-decoration:underline'>".$str . "</div>";
+  }
+  function fn_title($str){
+    echo(fn_get_title($str));
   }
 
   function fn_echo_ta($lab, $str){
@@ -159,20 +172,6 @@ trait General{
 
   function fn_echo_highlight($lab, $str=""){
     echo('<div style="border:1px solid black;color:black;background-color:red;">'.fn_get_echo($lab, $str).'</div>');
-  }
-
-  function fn_echo($lab, $str=""){
-    echo(fn_get_echo($lab, $str));
-  }
-  function fn_get_echo($lab, $str){
-    $s="<div>";
-    $s.=$lab;
-    if(!empty($str) or  $str==="0"){
-      $s.=": ";
-      $s.=$str;
-    }
-    $s.="</div>".PHP_EOL;
-    return $s;
   }
   function fn_debug_class($str_name_class){
     //print_r($obj_child);
@@ -201,8 +200,6 @@ trait General{
     $str.=" ";
     return $str;
   }
-
-
 
   function fn_itrim_from($str_to_search, $str_trim){
     $int_pos=stripos($str_to_search, $str_trim);
