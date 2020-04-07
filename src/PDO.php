@@ -1,12 +1,11 @@
 <?php
 namespace phplibrary;
-
 class PDO {
-
+  use General;
   public $pdo;
   public $db;
 
-  function __construct() {    
+  function __construct() {
   }
 
   public function fn_connect($host, $user, $pass, $db="", $charset="utf8",$str_name="myPDO") {
@@ -112,70 +111,6 @@ class PDO {
 
   function __destruct() {
     $this->pdo = null;
-  }
-
-  function fn_debug_write_rs($stmt){
-    $int_column_count=$stmt->columnCount();
-    echo '<table id="my-table" class="display" style="width:100%;border-collapse:collapse">'.PHP_EOL;
-    echo "<thead>".PHP_EOL;
-    echo "<tr>".PHP_EOL;
-    for ($i = 0; $i < $int_column_count; $i++) {
-        $col = $stmt->getColumnMeta($i);
-        echo "<th style='border:1px solid black'>".$col['name']."</th>".PHP_EOL;
-    }
-    echo "</tr>".PHP_EOL;
-    echo "</thead>".PHP_EOL;
-    echo "<tbody>".PHP_EOL;
-    while($row=$stmt->fetch(PDO::FETCH_NUM)){
-      echo "<tr>".PHP_EOL;
-      for ($i = 0; $i < $int_column_count; $i++) {
-          echo "<td style='border:1px solid black'>".$row[$i]."</td>".PHP_EOL;
-      }
-      echo "</tr>".PHP_EOL;
-    }
-    echo "</tbody>".PHP_EOL;
-    echo "</table>".PHP_EOL;
-  }
-  function fn_echo($lab, $str=""){
-    $s="<div>";
-    $s.=$lab;
-    if(!empty($str) or  $str==="0"){
-      $s.=": ";
-      $s.=$str;
-    }
-    $s.="</div>".PHP_EOL;
-    echo($s);
-  }
-  function fn_write_message($str_title, $foo_message){
-
-
-    if(is_array($foo_message)){
-      $s="";
-      foreach ($foo_message as $key => $value) {
-        $foo_value=$value;
-        if(is_array($foo_value)){
-          $foo_value="native array";
-        }
-        else if(is_object($foo_value)){
-          $foo_value="native object";
-        }
-        $s.=fn_get_echo($key, $foo_value);
-      }
-      $str_message=$s;
-    }
-    else{
-        $str_message=$foo_message;
-    }
-
-    $str="";
-    $str=$str.'<h1>'.$str_title.'</h1><p>'."\r\n";
-    $str=$str.$str_message;
-    $this->fn_write_container($str);
-  }
-  function fn_write_container($str){
-    echo '<div class="container p-3 my-3 bg-dark text-white rounded-lg">'."\r\n";
-    echo $str."\r\n";
-    echo '</div>'."\r\n";
   }
 }//END CLS PDO
 ?>

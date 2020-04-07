@@ -17,6 +17,7 @@ function fn_get_query_string_value($str_name){
 }
 
 class ServerVariables{
+  use General;
   function __construct() {
     global $bln_debug;
     $this->server_address=$_SERVER['SERVER_ADDR'];

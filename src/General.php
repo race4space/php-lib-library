@@ -196,6 +196,12 @@ trait General{
       }
       return (substr($string, -$len) === $endString);
   }
+  function fn_trim_add_space($str){
+    $str=trim($str);
+    $str.=" ";
+    return $str;
+  }
+
 
 
   function fn_itrim_from($str_to_search, $str_trim){
@@ -236,6 +242,16 @@ trait General{
     }
     return true;
   }
+  function fn_add_and($str, $str_add){
+    $str_trim=trim($str);
+    $s="";
+    if(!empty($str_trim)){
+      $s.="AND ";
+    }
+    $s.=$str_add;
+    return $s;
+  }
+
 
   function fn_write_card($arr, $str_theme_color="dark"){
 
