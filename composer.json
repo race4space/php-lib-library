@@ -1,0 +1,21 @@
+{
+    "name": "race4space/phplibrary",
+    "description": "A PHP Library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "race4space",
+            "email": "race4space@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+          "phplibrary\\": "src/"
+      }
+    },
+     "config": {
+            "sort-packages": true
+    },
+    "require": {}
+}
