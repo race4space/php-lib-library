@@ -6,7 +6,7 @@ class PDO {
   public $pdo;
   public $db;
 
-  function __construct() {
+  function __construct() {    
   }
 
   public function fn_connect($host, $user, $pass, $db="", $charset="utf8",$str_name="myPDO") {
@@ -34,6 +34,8 @@ class PDO {
      } catch (\PDOException $e) {
        //throw new \PDOException($e->getMessage(), (int)$e->getCode());
        $this->fn_write_message("Error", "Connection failed: " . $e->getMessage());
+       \phplibrary\fn_write_message("Error", "Connection failed: " . $e->getMessage());
+       $obj_gen->fn_write_message("Error", "Connection failed: " . $e->getMessage());
        die();
     }
   }
