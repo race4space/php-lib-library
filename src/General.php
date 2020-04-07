@@ -12,7 +12,7 @@ trait General{
     return $s;
   }
   function fn_echo($lab, $str=""){
-    echo(fn_get_echo($lab, $str));
+    echo($this->fn_get_echo($lab, $str));
   }
   function fn_replace_first($search, $replace, $subject) {
       $pos = strpos($subject, $search);
@@ -86,7 +86,7 @@ trait General{
         else if(is_object($foo_value)){
           $foo_value="native object";
         }
-        $s.=fn_get_echo($key, $foo_value);
+        $s.=$this->fn_get_echo($key, $foo_value);
       }
       $str_message=$s;
     }
@@ -120,7 +120,7 @@ trait General{
         else if(is_object($foo_value)){
           $foo_value="native object";
         }
-        $s.=fn_get_echo($key, $foo_value);
+        $s.=$this->fn_get_echo($key, $foo_value);
       }
       $str_message=$s;
     }
@@ -159,19 +159,19 @@ trait General{
     return "<div style='text-decoration:underline'>".$str . "</div>";
   }
   function fn_title($str){
-    echo(fn_get_title($str));
+    echo($this->fn_get_title($str));
   }
 
   function fn_echo_ta($lab, $str){
     $s="";
     $s.="<textarea style='width:600px;height:600px'>";
-    $s.=fn_get_echo($lab, $str);
+    $s.=$this->fn_get_echo($lab, $str);
     $s.="</textarea>";
     echo $s;
   }
 
   function fn_echo_highlight($lab, $str=""){
-    echo('<div style="border:1px solid black;color:black;background-color:red;">'.fn_get_echo($lab, $str).'</div>');
+    echo('<div style="border:1px solid black;color:black;background-color:red;">'.$this->fn_get_echo($lab, $str).'</div>');
   }
   function fn_debug_class($str_name_class){
     //print_r($obj_child);
