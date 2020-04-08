@@ -32,9 +32,7 @@ class PDO {
         //$this->fn_check_pool();
      } catch (\PDOException $e) {
        //throw new \PDOException($e->getMessage(), (int)$e->getCode());
-       $this->fn_write_message("Error", "Connection failed: " . $e->getMessage());
-       \phplibrary\fn_write_message("Error", "Connection failed: " . $e->getMessage());
-       $obj_gen->fn_write_message("Error", "Connection failed: " . $e->getMessage());
+       $this->fn_write_message("Error", "Connection failed: " . $e->getMessage());       
        die();
     }
   }
