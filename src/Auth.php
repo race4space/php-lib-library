@@ -2,7 +2,7 @@
 namespace phplibrary;
 class Auth{
   use General;
-  function __construct() {    
+  function __construct() {
     $this->userpass="letmein";
     $this->server_address=$_SERVER['SERVER_ADDR'];
     $this->local_address="127.0.0.1";
@@ -57,7 +57,6 @@ class Auth{
 
   function fn_check_submission(){
 
-
     $login_redirect="/";
 
       if ($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -111,21 +110,21 @@ class Auth{
       return json_decode($result, true);
   }//END function post_captcha
   function fn_write_form(){
-    echo <<< CLIENT
+    echo <<<CLIENT
     <div class="d-flex justify-content-center h-75">
     <form class="form-inline text-center"  action="/login/" method="post">
     <input type="hidden" name="_csrfToken" autocomplete="off" value=""/>
     <input type="password" name="login-pass" value="" placeholder="Please login..." class="form-control input-lg">&nbsp;
     <input type="submit" value="Login" >&nbsp;&nbsp;
-  CLIENT;
+CLIENT;
     if($this->server_address!=$this->local_address){
-    echo <<< CLIENT
+    echo <<<CLIENT
     <div class="g-recaptcha" data-sitekey="6LcmZuIUAAAAAPDkQEV9vCJ0_zYC3XevztFU9JYI"></div>
-  CLIENT;
+CLIENT;
     }
-    echo <<< CLIENT
+    echo <<<CLIENT
     </form>
     </div>
-  CLIENT;
+CLIENT;
   }
 }
