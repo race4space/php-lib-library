@@ -131,7 +131,7 @@ trait General{
     $str="";
     $str=$str.'<h1>'.$str_title.'</h1><p>'."\r\n";
     $str=$str.$str_message;
-    fn_write_container($str);
+    $this->fn_write_container($str);
   }
 
 
