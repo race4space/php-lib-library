@@ -56,8 +56,8 @@ class Auth{
       }
       //START post_captcha VIA GOOGLE
       if($this->server_address!=$this->local_address){
-        //$res = post_captcha($_POST['g-recaptcha-response']);
-        $res['success']=true;
+        $res = post_captcha($_POST['g-recaptcha-response']);//comment out to  bypass reaptcha
+        //$res['success']=true; //uncomment to  bypass reaptcha
       }
       else{
         $res['success']=true;
