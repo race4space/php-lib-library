@@ -200,7 +200,7 @@ trait General{
     $str.=" ";
     return $str;
   }
-  function fn_trim($str){
+  function fn_remove_newline($str){
     return trim(preg_replace('/\s+/', ' ', $str));
   }
 

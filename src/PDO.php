@@ -12,7 +12,7 @@ class PDO {
     //parent::__construct($str_name);
     $dsn = "mysql:host=$host;charset=$charset;";
     if(!empty($db)){
-        $dsn.="dbsname=$db";
+        $dsn.="dbname=$db";
     }
     $options = [
         \PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION,
