@@ -12,7 +12,7 @@ class PDO {
     //parent::__construct($str_name);
     $dsn = "mysql:host=$host;charset=$charset;";
     if(!empty($db)){
-        $dsn.="dbname=$db";
+        $dsn.="dbsname=$db";
     }
     $options = [
         \PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION,
@@ -32,7 +32,7 @@ class PDO {
         //$this->fn_check_pool();
      } catch (\PDOException $e) {
        //throw new \PDOException($e->getMessage(), (int)$e->getCode());
-       $this->fn_write_message("Error", "Connection failed: " . $e->getMessage());       
+       $this->fn_write_message("Error", "Connection failed: " . $e->getMessage());
        die();
     }
   }

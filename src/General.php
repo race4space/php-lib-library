@@ -200,6 +200,9 @@ trait General{
     $str.=" ";
     return $str;
   }
+  function fn_trim($str){
+    return trim(preg_replace('/\s+/', ' ', $str));
+  }
 
   function fn_itrim_from($str_to_search, $str_trim){
     $int_pos=stripos($str_to_search, $str_trim);
