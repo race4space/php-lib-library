@@ -3,6 +3,7 @@ namespace phplibrary;
 class Auth{
   use General;
   function __construct() {
+    $this->username="race4space";
     $this->userpass="letmein";
     $this->server_address=$_SERVER['SERVER_ADDR'];
     $this->local_address="127.0.0.1";
@@ -71,7 +72,7 @@ class Auth{
           session_start();
           if ( ! empty( $_POST ) ) {
             if (isset($_POST["login-pass"])){
-            	if($_POST["login-pass"]==="$this->userpass"){
+            	if($_POST["login-pass"]==="$this->userpass" and $_POST["login-name"]==="$this->username"){
                 $_SESSION["logged-in"]=true;
                 header("Location: ".$login_redirect);
             	}
