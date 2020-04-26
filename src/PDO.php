@@ -37,6 +37,13 @@ class PDO {
     }
   }
 
+  public function quote($str) {
+    return $this->pdo->quote($str);
+  }
+  public function query($str_sql) {
+    return $this->pdo->query($str_sql);
+  }
+
   public function fn_get_default_schema() {
 
     $str_sql="SELECT DATABASE();;";
