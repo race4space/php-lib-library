@@ -14,7 +14,7 @@
           "phplibrary\\": "src/"
       }
     },
-     "config": {            
+     "config": {
             "sort-packages": true
     },
     "require": {}
