@@ -195,6 +195,10 @@ trait General{
       }
       return (substr($string, -$len) === $endString);
   }
+  function fn_trim($str){
+    $str=trim($str);    
+    return $str;
+  }
   function fn_trim_add_space($str){
     $str=trim($str);
     $str.=" ";
